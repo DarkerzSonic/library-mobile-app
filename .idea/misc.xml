@@ -5,14 +5,21 @@
       <map>
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.196" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/ic_baseline_home.xml" value="0.196" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/rounded_edge.xml" value="0.2265" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/title_rounded_edge.xml" value="0.1965" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_main.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_main2.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_test.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/content_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_books.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_home.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_profile.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_room.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_search.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_second.xml" value="0.1" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.351" />
       </map>
     </option>
   </component>

@@ -34,6 +34,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485404374323:android:0c1ab88ec560e6e6837a46",
+        "android_client_info": {
+          "package_name": "my.edu.utar.rummy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485404374323-bt2bpctol9ve753op4kvpnbdgaep8orj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCdTgN4qib2DN__VfnzINF6ZPcr1-WeQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485404374323-bt2bpctol9ve753op4kvpnbdgaep8orj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

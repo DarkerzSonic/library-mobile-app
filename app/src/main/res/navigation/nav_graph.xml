@@ -14,19 +14,19 @@
     <fragment
         android:id="@+id/navigation_room"
         android:name="my.edu.utar.libraryapp.fragment_room"
-        android:label="favorites"
+        android:label="Favorites"
         tools:layout="@layout/fragment_room" />
 
     <fragment
         android:id="@+id/navigation_books"
         android:name="my.edu.utar.libraryapp.fragment_books"
-        android:label="search"
+        android:label="Search"
         tools:layout="@layout/fragment_books" />
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="my.edu.utar.libraryapp.fragment_profile"
-        android:label="profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 
 </navigation>
