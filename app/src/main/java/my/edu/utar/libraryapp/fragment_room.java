@@ -201,7 +201,9 @@ public class fragment_room extends Fragment implements DatePickerDialog.OnDateSe
 
         // set displayed date to current date
         long date = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy (EEE)");
+        SimpleDateFormat test = new SimpleDateFormat("EEE");
+        String testSrt = test.format(date);
         String dateString = sdf.format(date);
         dateText.setText(dateString);
 
@@ -276,7 +278,7 @@ public class fragment_room extends Fragment implements DatePickerDialog.OnDateSe
         bookDate = firebaseFormat.format(calendar.getTime());
 
         // display date
-        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy (EEE)");
         String strDate = format.format(calendar.getTime());
         dateText.setText(strDate);
     }
