@@ -68,8 +68,8 @@ public class fragment_home extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), TestActivity.class);
-                startActivity(i);
+                //Intent i = new Intent(getActivity(), TestActivity.class);
+                //startActivity(i);
             }
         });
         return view;
