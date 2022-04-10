@@ -19,4 +19,5 @@
     <string name="logout">Sign Out</string>
     <string name="msg_subscribed">Testing Success</string>
     <string name="msg_subscribe_failed">Testing Failed</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

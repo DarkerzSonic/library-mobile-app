@@ -6,15 +6,25 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -24,7 +34,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
  * Use the {@link fragment_home#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fragment_home extends Fragment {
+public class fragment_home extends Fragment implements OnMapReadyCallback {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +45,10 @@ public class fragment_home extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    SearchView searchView;
+
+    MapView mapView;
+    private static final String TAG = "UserListFragment";
     public fragment_home() {
         // Required empty public constructor
     }
@@ -71,26 +85,78 @@ public class fragment_home extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        Button btn = (Button) view.findViewById(R.id.test_btn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Intent i = new Intent(getActivity(), TestActivity.class);
-                //startActivity(i);
-                FirebaseMessaging.getInstance().subscribeToTopic("Overdue")
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                String msg = getString(R.string.msg_subscribed);
-                                if (!task.isSuccessful()) {
-                                    msg = getString(R.string.msg_subscribe_failed);
-                                }
-                                Log.d("HomeActivity", msg);
-                                Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            }
-        });
+        searchView = (SearchView) view.findViewById(R.id.sv);
+        mapView = (MapView) view.findViewById(R.id.mapView);
+
+        // *** IMPORTANT ***
+        // MapView requires that the Bundle you pass contain _ONLY_ MapView SDK
+        // objects or sub-Bundles.
+        Bundle mapViewBundle = null;
+        if (savedInstanceState != null) {
+            mapViewBundle = savedInstanceState.getBundle(TAG);
+        }
+
+        mapView.onCreate(mapViewBundle);
+
+        mapView.getMapAsync(this);
+
+//        searchView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //View navigateView = inflater.inflate(R.layout.fragment_books, container, false);
+//                Fragment newFragment = new fragment_books();
+//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//                transaction.replace(R.id.navigation_home, newFragment);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
+//            }
+//        });
         return view;
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapView.onResume();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mapView.onStop();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        //map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("Marker"));
+        // Add a marker in Sydney and move the camera
+        LatLng location = new LatLng(4.33982305849, 101.143008956);
+        map.addMarker(new MarkerOptions().position(location).title("UTAR Main Library"));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 10));
+    }
+
+    @Override
+    public void onPause() {
+        mapView.onPause();
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        mapView.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
     }
 }
