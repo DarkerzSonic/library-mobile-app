@@ -10,15 +10,25 @@ public class Transaction {
     private String student_ID;
     private String borrow_date, due_date;
     private String status;
+    private String userUID;
 
     public Transaction() { }
 
-    public Transaction(String ISBN, String student_ID, String borrow_date, String due_date, String status) {
+    public Transaction(String ISBN, String student_ID, String borrow_date, String due_date, String status, String userUID) {
         this.ISBN = ISBN;
         this.student_ID = student_ID;
         this.borrow_date = borrow_date;
         this.due_date = due_date;
         this.status = status;
+        this.userUID = userUID;
+    }
+
+    public String getUserUID() {
+        return userUID;
+    }
+
+    public void setUserUID(String userUID) {
+        this.userUID = userUID;
     }
 
     public String getKey() {

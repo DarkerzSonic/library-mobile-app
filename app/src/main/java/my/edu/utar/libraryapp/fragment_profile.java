@@ -101,7 +101,7 @@ public class fragment_profile extends Fragment {
         //DAOUser
         daoUser = new DAOUser();
 
-//        User test = new User("1803604","Yeow Ni Jia","darkerzsonic@1utar.my","","1");
+//        User test = new User("1","Admin","admin@1utar.my","",false,"VWr70JX8Z1XOhPegyi93SUk3AMS2");
 //
 //        daoUser.add(test);
 

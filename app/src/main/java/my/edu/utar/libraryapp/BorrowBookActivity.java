@@ -95,7 +95,7 @@ public class BorrowBookActivity extends AppCompatActivity {
                     dao.update(books.getKey(), hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Transaction transaction = new Transaction(books.getISBN(),studentID,borrowDate,dueDate,"Pending");
+                            Transaction transaction = new Transaction(books.getISBN(),studentID,borrowDate,dueDate,"Pending", mAuth.getUid());
                             daoTransaction.add(transaction);
                             btn_borrow.setClickable(false);
                             btn_borrow.setBackgroundColor(Color.GRAY);
