@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.196" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/ic_baseline_home.xml" value="0.196" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/notification.xml" value="0.2205" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/rounded_edge.xml" value="0.2265" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/title_rounded_edge.xml" value="0.1965" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_borrow_book.xml" value="0.12" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_main.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_main2.xml" value="0.18802083333333333" />
