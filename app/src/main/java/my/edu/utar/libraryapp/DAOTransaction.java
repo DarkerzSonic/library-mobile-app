@@ -7,24 +7,19 @@ import com.google.firebase.database.Query;
 
 import java.util.HashMap;
 
-public class DAOBook {
-
+public class DAOTransaction {
     private DatabaseReference databaseReference;
-
-    public DAOBook()
+    public DAOTransaction()
     {
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        databaseReference = db.getReference("Book");
-
+        FirebaseDatabase db =FirebaseDatabase.getInstance();
+        databaseReference = db.getReference("Transaction");
+    }
+    public Task<Void> add(Transaction transaction)
+    {
+        return databaseReference.push().setValue(transaction);
     }
 
-    public Task<Void> add(Book book)
-    {
-        return databaseReference.push().setValue(book);
-    }
-
-
-    public Task<Void> update(String key, HashMap<String,Object> hashMap)
+    public Task<Void> update(String key, HashMap<String ,Object> hashMap)
     {
         return databaseReference.child(key).updateChildren(hashMap);
     }
