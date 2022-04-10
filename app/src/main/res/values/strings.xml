@@ -16,4 +16,5 @@
     <string name="session2">1130 - 1300</string>
     <string name="session3">1330 - 1500</string>
     <string name="session4">1530 - 1700</string>
+    <string name="logout">Sign Out</string>
 </resources>

@@ -1,12 +1,30 @@
 package my.edu.utar.libraryapp;
 
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +32,22 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class fragment_profile extends Fragment {
+
+    // Firebase object key
+    String key = null;
+
+    // Firebase mAuth
+    private FirebaseAuth mAuth;
+
+    // XML components
+    Button logoutButton;
+    // Alert Dialog Box
+    AlertDialog.Builder builder;
+    // DAOUser Firebase
+    DAOUser daoUser;
+
+    ImageView imgUser;
+    TextView tv_name, tv_studentID;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +93,81 @@ public class fragment_profile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        // Firebase mAuth declaration
+        mAuth = FirebaseAuth.getInstance();
+
+        //DAOUser
+        daoUser = new DAOUser();
+
+//        User test = new User("1803604","Yeow Ni Jia","darkerzsonic@1utar.my","","1");
+//
+//        daoUser.add(test);
+
+        // declare alert box
+        builder = new AlertDialog.Builder(getContext());
+
+        // link XML components
+        logoutButton = (Button) view.findViewById(R.id.btn_logout);
+        imgUser = (ImageView) view.findViewById(R.id.img_user);
+        tv_name = (TextView) view.findViewById(R.id.tv_profileName);
+        tv_studentID = (TextView) view.findViewById(R.id.tv_profileID);
+
+        // get profile from Firebase
+        daoUser.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    //ArrayList<Room> room_arr = new ArrayList<>();
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        // retrieve record from firebase and store the key
+                        User user = data.getValue(User.class);
+                        user.setKey(data.getKey());
+
+                        // check whether the user info retrieved matches the current user
+                        if (user.firebaseUID.equals(mAuth.getUid())){
+                            tv_name.setText(user.name);
+                            tv_studentID.setText(user.studentID);
+                            Picasso.get().load(user.getImg()).into(imgUser);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        // set logout Button listener
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder.setTitle("Log Out")
+                        .setMessage("Are you sure?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                mAuth.signOut();
+                                Toast.makeText(getContext(), "Log out successfully!", Toast.LENGTH_LONG).show();
+                                getActivity().finish();
+                                //dialogInterface.cancel();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+            }
+        });
+
+        return view;
     }
 }

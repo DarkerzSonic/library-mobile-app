@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -28,6 +29,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // hide the status/system bar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        // hide the title/action bar
+        getSupportActionBar().hide();
 
         // get FirebaseAuth Object
         mAuth = FirebaseAuth.getInstance();
@@ -81,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()){
                             // redirect to library home page
                             Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.INVISIBLE);  // disable progress bar visibility
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(i);
                         }

@@ -297,7 +297,7 @@ public class fragment_room extends Fragment implements DatePickerDialog.OnDateSe
 
                         // check the room number & validate whether the room is booked
                         if (room.room_no == 1){
-                            if (room.status == true && room.date.equals(bookDate)) {
+                            if (room.status && room.date.equals(bookDate)) {
                                 if (room.time_slot == 1) {
                                     r1s1.setClickable(false);
                                     r1s1.setBackgroundColor(Color.GRAY);
@@ -317,7 +317,7 @@ public class fragment_room extends Fragment implements DatePickerDialog.OnDateSe
                             }
                         }
                         else{
-                            if (room.status == true && room.date.equals(bookDate)) {
+                            if (room.status && room.date.equals(bookDate)) {
                                 if (room.time_slot == 1) {
                                     r2s1.setClickable(false);
                                     r2s1.setBackgroundColor(Color.GRAY);
