@@ -34,9 +34,8 @@ public class fragment_books extends Fragment {
     RecyclerView recyclerView;
     BookAdapter adapter;
     DAOBook dao;
-    String key = null;
     SearchView searchView;
-
+    String key = null;
     private Button submit;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -178,10 +177,10 @@ public class fragment_books extends Fragment {
                     book.setKey(data.getKey());
                     books.add(book);
                     key = data.getKey();
-
                 }
                 adapter.setItems(books);
                 adapter.notifyDataSetChanged();
+
 
             }
 
