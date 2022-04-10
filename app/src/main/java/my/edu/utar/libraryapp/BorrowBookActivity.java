@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -21,7 +22,10 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class BorrowBookActivity extends AppCompatActivity {
@@ -30,8 +34,12 @@ public class BorrowBookActivity extends AppCompatActivity {
     TextView title, author, year, isbn, pages;
     Button btn_borrow;
     DAOBook dao;
+    DAOUser daoUser;
+    DAOTransaction daoTransaction;
     String key = null;
     Book books;
+    String studentID;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +65,24 @@ public class BorrowBookActivity extends AppCompatActivity {
         isbn.setText(books.getISBN());
         pages.setText(String.valueOf(books.getPages()));
 
+        mAuth = FirebaseAuth.getInstance();
+
         dao = new DAOBook();
+        daoUser = new DAOUser();
+        daoTransaction = new DAOTransaction();
+
+        long date = System.currentTimeMillis();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String borrowDate = dateFormat.format(date);
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date()); // Using today's date
+        c.add(Calendar.DATE, 14); // Adding 14 days
+        String dueDate = dateFormat.format(c.getTime());
 
         getData();
+        getUser();
+
         btn_borrow.setOnClickListener(new View.OnClickListener() {
 
             Boolean status = false;
@@ -72,9 +95,12 @@ public class BorrowBookActivity extends AppCompatActivity {
                     dao.update(books.getKey(), hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
+                            Transaction transaction = new Transaction(books.getISBN(),studentID,borrowDate,dueDate,"Pending");
+                            daoTransaction.add(transaction);
                             btn_borrow.setClickable(false);
                             btn_borrow.setBackgroundColor(Color.GRAY);
                             btn_borrow.setText("Unavailable");
+
                             Toast.makeText(BorrowBookActivity.this, "Book borrowed successfully", Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -116,5 +142,34 @@ public class BorrowBookActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void getUser(){
+
+        daoUser.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    //ArrayList<Room> room_arr = new ArrayList<>();
+                    for (DataSnapshot data : snapshot.getChildren()) {
+                        // retrieve record from firebase and store the key
+                        User user = data.getValue(User.class);
+                        user.setKey(data.getKey());
+
+                        // check whether the user info retrieved matches the current user
+                        if (user.firebaseUID.equals(mAuth.getUid())){
+                            studentID = user.getStudentID();
+                            break;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 
 }
