@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.196" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/ic_baseline_home.xml" value="0.196" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/ic_baseline_profile.xml" value="0.1965" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/ic_baseline_room.xml" value="0.1965" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/notification.xml" value="0.2205" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/rounded_edge.xml" value="0.2265" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/title_rounded_edge.xml" value="0.1965" />
@@ -21,7 +23,7 @@
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_admin.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_book.xml" value="0.18854166666666666" />
-        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_home.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_home.xml" value="0.1" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_room.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_room.xml" value="0.25416666666666665" />
