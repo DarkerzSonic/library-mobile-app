@@ -10,6 +10,7 @@ public class User {
     public String name;
     public String email;
     public String img;
+    public String identityNo;
     public boolean student;
 
     public boolean isStudent() {
@@ -34,13 +35,31 @@ public class User {
 
     }
 
-    public User(String studentID, String name, String email, String img, boolean student, String firebaseUID) {
+    public User(String studentID, String name, String email, String img, String identityNo, boolean student, String firebaseUID) {
         this.studentID = studentID;
         this.name = name;
         this.email = email;
         this.img = img;
+        this.identityNo = identityNo;
         this.student = student;
         this.firebaseUID = firebaseUID;
+    }
+
+//    public User(String studentID, String name, String email, String img, boolean student, String firebaseUID) {
+//        this.studentID = studentID;
+//        this.name = name;
+//        this.email = email;
+//        this.img = img;
+//        this.student = student;
+//        this.firebaseUID = firebaseUID;
+//    }
+
+    public String getIdentityNo() {
+        return identityNo;
+    }
+
+    public void setIdentityNo(String identityNo) {
+        this.identityNo = identityNo;
     }
 
     public String getStudentID() {
