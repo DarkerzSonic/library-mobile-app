@@ -3,8 +3,8 @@
     package="my.edu.utar.libraryapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Libraryapp">
-
+        <activity
+            android:name=".LibMainActivity"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -45,7 +47,7 @@
             android:name=".BorrowBookActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".StudentMainActivity"
             android:exported="true">
 
             <!-- <intent-filter> -->

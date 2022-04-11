@@ -89,8 +89,15 @@ public class LoginActivity extends AppCompatActivity {
                             // redirect to library home page
                             Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.INVISIBLE);  // disable progress bar visibility
-                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(i);
+                            if (username.equals("admin@1utar.my")) {
+                                Intent i = new Intent(LoginActivity.this, LibMainActivity.class);
+                                startActivity(i);
+                            }
+                            else
+                            {
+                                Intent i = new Intent(LoginActivity.this, StudentMainActivity.class);
+                                startActivity(i);
+                            }
                         }
                         else{
                             Toast.makeText(LoginActivity.this, "Invalid username or password!", Toast.LENGTH_LONG).show();
