@@ -88,36 +88,6 @@
                     android:textSize="25sp" />
 
                 <LinearLayout
-                    android:id="@+id/ll_room1part2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:orientation="horizontal"
-                    android:visibility="gone">
-
-                    <Button
-                        android:id="@+id/btn_r1s3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#4169E1"
-                        android:text="@string/session3"
-                        android:textSize="16sp" />
-
-                    <Button
-                        android:id="@+id/btn_r1s4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#4169E1"
-                        android:text="@string/session4"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/ll_room1part1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -146,6 +116,36 @@
                         android:text="@string/session2"
                         android:textSize="16sp" />
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_room1part2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <Button
+                        android:id="@+id/btn_r1s3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#4169E1"
+                        android:text="@string/session3"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btn_r1s4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#4169E1"
+                        android:text="@string/session4"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
             </LinearLayout>

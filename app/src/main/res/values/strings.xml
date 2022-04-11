@@ -20,4 +20,6 @@
     <string name="msg_subscribed">Testing Success</string>
     <string name="msg_subscribe_failed">Testing Failed</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="room_available">Available</string>
+    <string name="room_occupied">Occupied</string>
 </resources>

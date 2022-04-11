@@ -1,10 +1,12 @@
 package my.edu.utar.libraryapp;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -47,6 +49,9 @@ public class fragment_room extends Fragment implements DatePickerDialog.OnDateSe
     Button r1s1,r1s2,r1s3,r1s4,r2s1,r2s2,r2s3,r2s4;
     DAORoom daoRoom;
     String key = null;
+
+    // Alert Dialog Box
+    AlertDialog.Builder builder;
 
     String bookDate;
 
@@ -109,89 +114,227 @@ public class fragment_room extends Fragment implements DatePickerDialog.OnDateSe
         r2s3 = (Button) view.findViewById(R.id.btn_r2s3);
         r2s4 = (Button) view.findViewById(R.id.btn_r2s4);
 
+        // declare alert box
+        builder = new AlertDialog.Builder(getContext());
+
         // button listener
         r1s1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Room bookRoom = new Room(1,bookDate,1,true);
-                daoRoom.add(bookRoom);
-                r1s1.setClickable(false);
-                r1s1.setBackgroundColor(Color.GRAY);
-                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                builder.setTitle("Discussion Room Reservation")
+                        .setMessage("Confirm to book this time slot?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Room bookRoom = new Room(1,bookDate,1,true);
+                                daoRoom.add(bookRoom);
+                                r1s1.setClickable(false);
+                                r1s1.setBackgroundColor(Color.GRAY);
+                                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                                //dialogInterface.cancel();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
             }
         });
 
         r1s2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Room bookRoom = new Room(1,bookDate,2,true);
-                daoRoom.add(bookRoom);
-                r1s2.setClickable(false);
-                r1s2.setBackgroundColor(Color.GRAY);
-                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                builder.setTitle("Discussion Room Reservation")
+                        .setMessage("Confirm to book this time slot?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                                //dialogInterface.cancel();
+                                Room bookRoom = new Room(1,bookDate,2,true);
+                                daoRoom.add(bookRoom);
+                                r1s2.setClickable(false);
+                                r1s2.setBackgroundColor(Color.GRAY);
+                                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
             }
         });
 
         r1s3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Room bookRoom = new Room(1,bookDate,3,true);
-                daoRoom.add(bookRoom);
-                r1s3.setClickable(false);
-                r1s3.setBackgroundColor(Color.GRAY);
-                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                builder.setTitle("Discussion Room Reservation")
+                        .setMessage("Confirm to book this time slot?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                                //dialogInterface.cancel();
+                                Room bookRoom = new Room(1,bookDate,3,true);
+                                daoRoom.add(bookRoom);
+                                r1s3.setClickable(false);
+                                r1s3.setBackgroundColor(Color.GRAY);
+                                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
             }
         });
 
         r1s4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Room bookRoom = new Room(1,bookDate,4,true);
-                daoRoom.add(bookRoom);
-                r1s4.setClickable(false);
-                r1s4.setBackgroundColor(Color.GRAY);
-                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                builder.setTitle("Discussion Room Reservation")
+                        .setMessage("Confirm to book this time slot?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                                //dialogInterface.cancel();
+                                Room bookRoom = new Room(1,bookDate,4,true);
+                                daoRoom.add(bookRoom);
+                                r1s4.setClickable(false);
+                                r1s4.setBackgroundColor(Color.GRAY);
+                                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
             }
         });
 
         r2s1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Room bookRoom = new Room(2,bookDate,1,true);
-                daoRoom.add(bookRoom);
-                r2s1.setClickable(false);
-                r2s1.setBackgroundColor(Color.GRAY);
-                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                builder.setTitle("Discussion Room Reservation")
+                        .setMessage("Confirm to book this time slot?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                                //dialogInterface.cancel();
+                                Room bookRoom = new Room(2,bookDate,1,true);
+                                daoRoom.add(bookRoom);
+                                r2s1.setClickable(false);
+                                r2s1.setBackgroundColor(Color.GRAY);
+                                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
             }
         });
         r2s2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Room bookRoom = new Room(2,bookDate,2,true);
-                daoRoom.add(bookRoom);
-                r2s2.setClickable(false);
-                r2s2.setBackgroundColor(Color.GRAY);
-                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                builder.setTitle("Discussion Room Reservation")
+                        .setMessage("Confirm to book this time slot?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                                //dialogInterface.cancel();
+                                Room bookRoom = new Room(2,bookDate,2,true);
+                                daoRoom.add(bookRoom);
+                                r2s2.setClickable(false);
+                                r2s2.setBackgroundColor(Color.GRAY);
+                                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
             }
         });
         r2s3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Room bookRoom = new Room(2,bookDate,3,true);
-                daoRoom.add(bookRoom);
-                r2s3.setClickable(false);
-                r2s3.setBackgroundColor(Color.GRAY);
-                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                builder.setTitle("Discussion Room Reservation")
+                        .setMessage("Confirm to book this time slot?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                                //dialogInterface.cancel();
+                                Room bookRoom = new Room(2,bookDate,3,true);
+                                daoRoom.add(bookRoom);
+                                r2s3.setClickable(false);
+                                r2s3.setBackgroundColor(Color.GRAY);
+                                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
             }
         });
         r2s4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Room bookRoom = new Room(2,bookDate,4,true);
-                daoRoom.add(bookRoom);
-                r2s4.setClickable(false);
-                r2s4.setBackgroundColor(Color.GRAY);
-                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                builder.setTitle("Discussion Room Reservation")
+                        .setMessage("Confirm to book this time slot?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                                //dialogInterface.cancel();
+                                Room bookRoom = new Room(2,bookDate,4,true);
+                                daoRoom.add(bookRoom);
+                                r2s4.setClickable(false);
+                                r2s4.setBackgroundColor(Color.GRAY);
+                                Toast.makeText(getContext(), "Room booked successfully!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
             }
         });
 
@@ -202,8 +345,8 @@ public class fragment_room extends Fragment implements DatePickerDialog.OnDateSe
         // set displayed date to current date
         long date = System.currentTimeMillis();
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy (EEE)");
-        SimpleDateFormat test = new SimpleDateFormat("EEE");
-        String testSrt = test.format(date);
+        //SimpleDateFormat test = new SimpleDateFormat("EEE");
+        //String testSrt = test.format(date);
         String dateString = sdf.format(date);
         dateText.setText(dateString);
 
@@ -367,4 +510,5 @@ public class fragment_room extends Fragment implements DatePickerDialog.OnDateSe
         r2s4.setClickable(true);
         r2s4.setBackgroundColor(getResources().getColor(R.color.blue));
     }
+
 }
