@@ -13,16 +13,20 @@ public class Transaction implements Serializable {
     private String borrow_date, due_date;
     private String status;
     private String userUID;
+    private String title;
+    private String book_img;
 
     public Transaction() { }
 
-    public Transaction(String ISBN, String student_ID, String borrow_date, String due_date, String status, String userUID) {
+    public Transaction(String ISBN, String student_ID, String borrow_date, String due_date, String status, String userUID, String title, String book_img) {
         this.ISBN = ISBN;
         this.student_ID = student_ID;
         this.borrow_date = borrow_date;
         this.due_date = due_date;
         this.status = status;
         this.userUID = userUID;
+        this.title = title;
+        this.book_img = book_img;
     }
 
     public String getUserUID() {
@@ -79,5 +83,21 @@ public class Transaction implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBook_img() {
+        return book_img;
+    }
+
+    public void setBook_img(String book_img) {
+        this.book_img = book_img;
     }
 }

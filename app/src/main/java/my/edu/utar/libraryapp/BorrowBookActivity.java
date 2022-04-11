@@ -71,15 +71,6 @@ public class BorrowBookActivity extends AppCompatActivity {
         daoUser = new DAOUser();
         daoTransaction = new DAOTransaction();
 
-        long date = System.currentTimeMillis();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String borrowDate = dateFormat.format(date);
-
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date()); // Using today's date
-        c.add(Calendar.DATE, 14); // Adding 14 days
-        String dueDate = dateFormat.format(c.getTime());
-
         getData();
         getUser();
 
@@ -95,7 +86,7 @@ public class BorrowBookActivity extends AppCompatActivity {
                     dao.update(books.getKey(), hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Transaction transaction = new Transaction(books.getISBN(),studentID,borrowDate,dueDate,"Pending", mAuth.getUid());
+                            Transaction transaction = new Transaction(books.getISBN(),studentID,"N/A","N/A","Pending", mAuth.getUid(), books.getTitle(), books.getImage());
                             daoTransaction.add(transaction);
                             btn_borrow.setClickable(false);
                             btn_borrow.setBackgroundColor(Color.GRAY);

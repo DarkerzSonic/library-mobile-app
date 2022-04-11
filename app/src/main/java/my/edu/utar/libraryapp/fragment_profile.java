@@ -58,6 +58,7 @@ public class fragment_profile extends Fragment {
     TransactionAdapter adapter;
     DAOTransaction daoTransaction;
     ArrayList<Transaction> transactions = new ArrayList<>();
+    String userID;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -138,6 +139,7 @@ public class fragment_profile extends Fragment {
         daoTransaction = new DAOTransaction();
         //loadTransaction();
 
+
         // get profile from Firebase
         daoUser.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -197,20 +199,22 @@ public class fragment_profile extends Fragment {
 
     private void loadTransaction() {
         transactions.clear();
+
         daoTransaction.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 for(DataSnapshot data : snapshot.getChildren()){
-                    Transaction transaction = data.getValue(Transaction.class);
-                    transaction.setKey(data.getKey());
-                    transactions.add(transaction);
-                    key = data.getKey();
+                    Transaction temp_transaction = data.getValue(Transaction.class);
+                    temp_transaction.setKey(data.getKey());
+                    if(temp_transaction.getUserUID().equals(mAuth.getUid())){
+                        transactions.add(temp_transaction);
+                    }
+
                 }
+
                 adapter.setItems(transactions);
                 adapter.notifyDataSetChanged();
-
-
             }
 
             @Override
@@ -221,4 +225,5 @@ public class fragment_profile extends Fragment {
 
         });
     }
+
 }
