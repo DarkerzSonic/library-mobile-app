@@ -1,12 +1,19 @@
 package my.edu.utar.libraryapp;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +26,10 @@ public class LibAdminFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    Button bookManagementBtn, announcementBtn, sendOverdueBtn, studentRegBtn, libLogOutBtn;
+    AlertDialog.Builder builder;
+    private FirebaseAuth mAuth;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,6 +70,85 @@ public class LibAdminFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lib_admin, container, false);
+        View view = inflater.inflate(R.layout.fragment_lib_admin, container, false);
+
+        // Firebase Authentication object
+        mAuth = FirebaseAuth.getInstance();
+
+        // declare alert box
+        builder = new AlertDialog.Builder(getContext());
+        bookManagementBtn = (Button) view.findViewById(R.id.btn_bookManagement);
+        announcementBtn = (Button) view.findViewById(R.id.btn_announcement);
+        sendOverdueBtn = (Button) view.findViewById(R.id.btn_sendOverdue);
+        studentRegBtn = (Button) view.findViewById(R.id.btn_studentReg);
+        libLogOutBtn = (Button) view.findViewById(R.id.btn_libLogOut);
+
+        // Book Management Button
+        bookManagementBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        // Announcement Management Button
+        announcementBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        // Send Overdue Warning Button
+        sendOverdueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder.setTitle("Send Overdue Warning")
+                        .setMessage("This function is still under development!")
+                        .setCancelable(true)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+            }
+        });
+
+        // New Student Registration Button
+        studentRegBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), StudentRegistration.class);
+                getContext().startActivity(i);
+            }
+        });
+
+        // Librarian Log Out Button
+        libLogOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder.setTitle("Log Out")
+                        .setMessage("Are you sure?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                mAuth.signOut();
+                                Toast.makeText(getContext(), "Log out successfully!", Toast.LENGTH_LONG).show();
+                                getActivity().finish();
+                                //dialogInterface.cancel();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+            }
+        });
+
+        return view;
     }
 }
