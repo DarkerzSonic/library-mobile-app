@@ -29,7 +29,7 @@ public class LibMainActivity extends AppCompatActivity {
 
         //Pass the ID's of Different destinations
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_lib_home, R.id.navigation_lib_book, R.id.navigation_lib_room, R.id.navigation_lib_admin )
+                R.id.navigation_home, R.id.navigation_lib_book, R.id.navigation_lib_room, R.id.navigation_lib_admin )
                 .build();
 
         //Initialize NavController.
