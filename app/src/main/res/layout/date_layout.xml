@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1,2">
+    <TableRow
+        android:id="@+id/transaction_row"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+        <TextView
+            android:id="@+id/borrowdate_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="text"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:layout_column="1"/>
+
+        <TextView
+            android:id="@+id/duedate_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:text="text"
+            android:layout_column="1"/>
+    </TableRow>
+
+</TableLayout>

@@ -2,7 +2,9 @@ package my.edu.utar.libraryapp;
 
 import com.google.firebase.database.Exclude;
 
-public class Transaction {
+import java.io.Serializable;
+
+public class Transaction implements Serializable {
     @Exclude
     String key;
 

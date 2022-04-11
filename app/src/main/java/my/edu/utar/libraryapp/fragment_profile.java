@@ -8,11 +8,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +53,11 @@ public class fragment_profile extends Fragment {
 
     ImageView imgUser;
     TextView tv_name, tv_studentID;
+
+    RecyclerView recyclerView;
+    TransactionAdapter adapter;
+    DAOTransaction daoTransaction;
+    ArrayList<Transaction> transactions = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,6 +91,11 @@ public class fragment_profile extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        loadTransaction();
+    }
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -113,6 +128,15 @@ public class fragment_profile extends Fragment {
         imgUser = (ImageView) view.findViewById(R.id.img_user);
         tv_name = (TextView) view.findViewById(R.id.tv_profileName);
         tv_studentID = (TextView) view.findViewById(R.id.tv_profileID);
+
+        recyclerView = view.findViewById(R.id.transaction_rv);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(manager);
+        adapter = new TransactionAdapter(getActivity());
+        recyclerView.setAdapter(adapter);
+        daoTransaction = new DAOTransaction();
+        //loadTransaction();
 
         // get profile from Firebase
         daoUser.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -169,5 +193,32 @@ public class fragment_profile extends Fragment {
         });
 
         return view;
+    }
+
+    private void loadTransaction() {
+        transactions.clear();
+        daoTransaction.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot data : snapshot.getChildren()){
+                    Transaction transaction = data.getValue(Transaction.class);
+                    transaction.setKey(data.getKey());
+                    transactions.add(transaction);
+                    key = data.getKey();
+                }
+                adapter.setItems(transactions);
+                adapter.notifyDataSetChanged();
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+
+        });
     }
 }

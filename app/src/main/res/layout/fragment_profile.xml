@@ -87,6 +87,62 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="1,2,3">
+
+                <TextView
+                    android:text="Transaction History"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:padding="10dp"
+                        android:layout_column="1"/>
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Book" android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:padding="10dp"
+                        android:layout_column="1"/>
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Status"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_column="1"/>
+                </TableRow>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/transaction_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+
+            </TableLayout>
+
             <Button
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"

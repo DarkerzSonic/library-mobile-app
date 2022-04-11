@@ -30,6 +30,9 @@
             android:value="AIzaSyCWLVZsmzPCo9tke7PvgNP1wNkpV-4b0NI" />
 
         <activity
+            android:name=".TransactionActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>

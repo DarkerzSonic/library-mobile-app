@@ -35,7 +35,7 @@ public class DAOTransaction {
         {
             return databaseReference.orderByKey();
         }
-        return databaseReference.orderByKey().startAfter(key);
+        return databaseReference.orderByKey();
     }
 
     public Query get()

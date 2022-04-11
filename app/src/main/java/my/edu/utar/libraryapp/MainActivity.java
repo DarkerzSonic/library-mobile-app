@@ -12,13 +12,22 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,6 +83,40 @@ public class MainActivity extends AppCompatActivity {
                             FirebaseMessaging.getInstance().subscribeToTopic("Overdue");
                             Log.i("Overdue student","Overdue");
                         }
+
+                        //update transaction status
+                        try {
+                            Calendar c = Calendar.getInstance();
+                            c.setTime(new Date()); // Using today's date
+                            Date today = c.getTime();
+
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                            Date dueDate= dateFormat.parse(transaction.getDue_date()); //due date
+                            long time_diff = dueDate.getTime() - today.getTime();
+                            long days_difference = (time_diff / (1000*60*60*24)) % 365;
+
+                            if(days_difference < 0)
+                            {
+                                HashMap<String, Object> hashMap = new HashMap<>();
+                                hashMap.put("status", "Overdue");
+                                daoTransaction.update(transaction.getKey(), hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
 
                     }
                 }
