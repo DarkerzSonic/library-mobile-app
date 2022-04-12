@@ -54,6 +54,27 @@
                 android:src="@drawable/library" />
 
             <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp"
+                android:text="Announcements"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_announcement"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+                tools:listitem="@layout/announcement_rv_item" />
+
+            <TextView
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -116,13 +116,13 @@ public class LibAdminFragment extends Fragment {
         });
 
         // New Student Registration Button
-//        studentRegBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(getContext(), StudentRegistration.class);
-//                getContext().startActivity(i);
-//            }
-//        });
+        studentRegBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getContext(), StudentRegistration.class);
+                getContext().startActivity(i);
+            }
+        });
 
         // Librarian Log Out Button
         libLogOutBtn.setOnClickListener(new View.OnClickListener() {

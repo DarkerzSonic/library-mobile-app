@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TableRow;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,6 +50,7 @@ public class StudentRegistration extends AppCompatActivity {
     Button registerStudentBtn, uploadImageBtn;
     ImageView studentImgPreview;
     ProgressBar progressBar;
+    TableRow tableRow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,7 @@ public class StudentRegistration extends AppCompatActivity {
         uploadImageBtn = findViewById(R.id.btn_uploadImage);
         studentImgPreview = findViewById(R.id.iv_studentImgPreview);
         progressBar = findViewById(R.id.progressBar_register);
+        tableRow = findViewById(R.id.tr_imageView);
 
         // Firebase Storage
         storage = FirebaseStorage.getInstance();
@@ -163,6 +166,7 @@ public class StudentRegistration extends AppCompatActivity {
         if (requestCode == SELECT_PHOTO && resultCode == RESULT_OK && data != null && data.getData() != null){
             uri = data.getData();
             try{
+                tableRow.setVisibility(View.VISIBLE);
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 studentImgPreview.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {

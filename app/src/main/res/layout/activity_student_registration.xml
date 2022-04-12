@@ -132,10 +132,12 @@
                 </TableRow>
 
                 <TableRow
+                    android:id="@+id/tr_imageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/iv_studentImgPreview"

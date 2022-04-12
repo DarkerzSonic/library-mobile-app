@@ -5,9 +5,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,7 +30,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,9 +53,15 @@ public class fragment_home extends Fragment implements OnMapReadyCallback {
     private String mParam1;
     private String mParam2;
 
-    SearchView searchView;
-
     MapView mapView;
+    private ArrayList<Announcement> announcementArrayList = new ArrayList<>();
+    private AnnouncementRVAdapter announcementRVAdapter;
+    private RecyclerView announcementRV;
+    private NestedScrollView nestedSV;
+    boolean isLoading = false;
+    String key = null;
+    DAOAnnouncement daoAnnouncement;
+
     private static final String TAG = "UserListFragment";
     public fragment_home() {
         // Required empty public constructor
@@ -85,7 +99,16 @@ public class fragment_home extends Fragment implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        searchView = (SearchView) view.findViewById(R.id.sv);
+
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        announcementRV = view.findViewById(R.id.rv_announcement);
+        announcementRV.setHasFixedSize(true);
+        announcementRVAdapter = new AnnouncementRVAdapter(getContext());
+        announcementRV.setLayoutManager(manager);
+        announcementRV.setAdapter(announcementRVAdapter);
+        daoAnnouncement = new DAOAnnouncement();
+
+
         mapView = (MapView) view.findViewById(R.id.mapView);
 
         // *** IMPORTANT ***
@@ -100,17 +123,28 @@ public class fragment_home extends Fragment implements OnMapReadyCallback {
 
         mapView.getMapAsync(this);
 
-//        searchView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //View navigateView = inflater.inflate(R.layout.fragment_books, container, false);
-//                Fragment newFragment = new fragment_books();
-//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//                transaction.replace(R.id.navigation_home, newFragment);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
-//            }
-//        });
+        // insert test anouncement data
+        //daoAnnouncement.add(new Announcement("12/4/2022","UTAR Library Closure","Testing 123"));
+
+        retrieveRecord();
+
+        // add onScrollListener to RecyclerView
+        announcementRV.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                //super.onScrolled(recyclerView, dx, dy);
+                LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                int totalItem = linearLayoutManager.getItemCount();
+                int lastVisible = linearLayoutManager.findLastCompletelyVisibleItemPosition();
+//                if (totalItem < lastVisible + 3){
+//                    if (!isLoading){
+//                        isLoading = true;
+//                        retrieveRecord();
+//                    }
+//                }
+            }
+        });
+
         return view;
     }
 
@@ -158,5 +192,29 @@ public class fragment_home extends Fragment implements OnMapReadyCallback {
     public void onLowMemory() {
         super.onLowMemory();
         mapView.onLowMemory();
+    }
+
+    private void retrieveRecord(){
+        daoAnnouncement.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for(DataSnapshot data : snapshot.getChildren()){
+                    Announcement announcement = data.getValue(Announcement.class);
+                    announcement.setKey(data.getKey());
+                    announcementArrayList.add(announcement);
+                    key = data.getKey();
+                }
+                announcementRVAdapter.setItems(announcementArrayList);
+                announcementRVAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+
+        });
     }
 }
