@@ -95,7 +95,8 @@ public class LibAdminFragment extends Fragment {
         announcementBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getContext(), AnnouncementManagementActivity.class);
+                getContext().startActivity(i);
             }
         });
 

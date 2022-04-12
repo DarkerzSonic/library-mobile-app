@@ -10,6 +10,7 @@
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/notification.xml" value="0.2205" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/rounded_edge.xml" value="0.2265" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/title_rounded_edge.xml" value="0.1965" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_announcement_management.xml" value="0.5" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_borrow_book.xml" value="0.12" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_lib_main.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_login.xml" value="0.264" />
@@ -18,17 +19,18 @@
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_maps.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_student_registration.xml" value="0.22" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/activity_test.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/add_announcement_dialog.xml" value="0.2140625" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/announcement_rv_item.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/announecment_rv_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/book_layout.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/content_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_books.xml" value="0.25" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_admin.xml" value="0.1" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_admin.xml" value="0.22" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_book.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_home.xml" value="0.1" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_lib_room.xml" value="0.18" />
-        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_room.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_search.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/layout/fragment_second.xml" value="0.1" />

@@ -57,7 +57,7 @@ public class fragment_home extends Fragment implements OnMapReadyCallback {
     private ArrayList<Announcement> announcementArrayList = new ArrayList<>();
     private AnnouncementRVAdapter announcementRVAdapter;
     private RecyclerView announcementRV;
-    private NestedScrollView nestedSV;
+    //private NestedScrollView nestedSV;
     boolean isLoading = false;
     String key = null;
     DAOAnnouncement daoAnnouncement;
@@ -195,6 +195,7 @@ public class fragment_home extends Fragment implements OnMapReadyCallback {
     }
 
     private void retrieveRecord(){
+        announcementArrayList.clear();
         daoAnnouncement.get(key).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

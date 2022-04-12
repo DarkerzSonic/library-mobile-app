@@ -19,9 +19,11 @@
         android:id="@+id/tv_announcementDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_weight="1"
+        android:gravity="end"
         android:text="Date"
         android:textSize="18sp" />
 </LinearLayout>

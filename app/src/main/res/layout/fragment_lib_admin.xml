@@ -99,12 +99,12 @@
 
             <Button
                 android:id="@+id/btn_libLogOut"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:backgroundTint="@color/blue"
+                android:backgroundTint="@color/yellow"
+                android:drawableTop="@drawable/ic_logout"
                 android:text="Log Out"
-                android:textColor="@color/yellow"
                 android:textSize="15sp" />
         </LinearLayout>
     </ScrollView>

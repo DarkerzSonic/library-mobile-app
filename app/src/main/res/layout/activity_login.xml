@@ -98,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     android:backgroundTint="#4169E1"
+                    android:drawableTop="@drawable/ic_login"
                     android:minHeight="60dip"
                     android:text="Sign In"
                     android:textSize="15sp" />

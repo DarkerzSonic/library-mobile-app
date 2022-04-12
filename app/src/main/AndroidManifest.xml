@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Libraryapp">
         <activity
+            android:name=".AnnouncementManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".StudentRegistration"
             android:exported="false" />
         <activity
