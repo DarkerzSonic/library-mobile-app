@@ -67,6 +67,7 @@
         </activity>
         <activity
             android:name=".BorrowBookActivity"
+            android:theme="@style/Theme.Libraryapp.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".StudentMainActivity"
