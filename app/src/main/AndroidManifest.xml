@@ -54,7 +54,6 @@
 
         <activity
             android:name=".TransactionActivity"
-            android:theme="@style/Theme.Libraryapp.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
@@ -67,7 +66,6 @@
         </activity>
         <activity
             android:name=".BorrowBookActivity"
-            android:theme="@style/Theme.Libraryapp.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".StudentMainActivity"
