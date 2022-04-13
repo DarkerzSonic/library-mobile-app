@@ -215,12 +215,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/return_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/yellow"
                 android:text="Return" />
 
             <Button
@@ -229,6 +231,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/blue"
                 android:text="Collect" />
 
 
