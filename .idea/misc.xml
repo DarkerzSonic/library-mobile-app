@@ -3,17 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/drawable/ic_baseline_book.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/drawable/ic_baseline_home.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_admin_transaction.xml" value="0.16" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_announcement_management.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_book_add.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_book_delete_management.xml" value="0.1911231884057971" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_book_management.xml" value="0.16" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_book_update.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_borrow_book.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_lib_main.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_login.xml" value="0.1308876811594203" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_transaction.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/book_layout.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/date_layout.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/fragment_books.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/fragment_lib_admin.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/fragment_lib_book.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/fragment_lib_home.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/transaction_layout.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
