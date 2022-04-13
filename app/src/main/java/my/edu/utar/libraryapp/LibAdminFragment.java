@@ -87,6 +87,8 @@ public class LibAdminFragment extends Fragment {
         bookManagementBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                    Intent i = new Intent(getContext(), BookManagementActivity.class);
+                    getActivity().startActivity(i);
 
             }
         });

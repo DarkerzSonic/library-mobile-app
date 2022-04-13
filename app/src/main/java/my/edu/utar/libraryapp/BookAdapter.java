@@ -27,6 +27,7 @@ public class BookAdapter extends RecyclerView.Adapter {
 
     public void setItems(ArrayList<Book> book)
     {
+        list.clear();
         list.addAll(book);
     }
 
