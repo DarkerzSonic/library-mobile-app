@@ -17,7 +17,22 @@
             android:name=".AnnouncementManagementActivity"
             android:exported="false" />
         <activity
+            android:name=".BookAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookUpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookDeleteManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".StudentRegistration"
+            android:exported="false" />
+        <activity
+            android:name=".AdminTransactionActivity"
             android:exported="false" />
         <activity
             android:name=".LibMainActivity"
