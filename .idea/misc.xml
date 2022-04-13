@@ -3,10 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_admin_transaction.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_admin_transaction.xml" value="0.16" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_announcement_management.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_book_add.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/activity_transaction.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/book_layout.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/date_layout.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/fragment_books.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/layout/transaction_layout.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Users/User/Desktop/Y3S3 MAD/Mobile Grp Assignment 2/library-mobile-app/app/src/main/res/menu/lib_bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.196" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/ic_baseline_home.xml" value="0.196" />
         <entry key="..\:/Users/darke/AndroidStudioProjects/libraryapp/app/src/main/res/drawable/ic_baseline_profile.xml" value="0.1965" />
