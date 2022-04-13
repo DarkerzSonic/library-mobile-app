@@ -7,6 +7,18 @@
     android:orientation="vertical"
     tools:context=".BookManagementActivity">
 
+    <TextView
+        android:id="@+id/textView_bookmngm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/title_rounded_edge"
+        android:gravity="center"
+        android:text="Book Management"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <SearchView
         android:id="@+id/bookmanage_sv"
         android:layout_width="wrap_content"
