@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/yellow"
     android:orientation="vertical"
     tools:context=".BookDeleteManagementActivity">
 
@@ -36,8 +37,8 @@
                 android:id="@+id/book_mgnt_book_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
                 android:layout_gravity="center"
+                android:adjustViewBounds="true"
                 android:maxWidth="150dp"
                 android:maxHeight="200dp"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -176,7 +177,6 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -186,16 +186,18 @@
                     android:id="@+id/btn_delete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/yellow"
                     android:text="Delete" />
 
                 <Button
                     android:id="@+id/btn_edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/blue"
                     android:text="Edit" />
 
             </LinearLayout>

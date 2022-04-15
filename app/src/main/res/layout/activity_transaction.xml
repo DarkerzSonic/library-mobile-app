@@ -11,6 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/title_rounded_edge"
+            android:gravity="center"
+            android:text="Record"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold" />
     <ImageView
         android:id="@+id/book_img"
         android:layout_width="match_parent"
@@ -195,6 +206,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:backgroundTint="@color/yellow"
         android:text="Extend" />
 
     </LinearLayout>
