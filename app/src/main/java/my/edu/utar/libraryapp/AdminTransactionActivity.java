@@ -1,10 +1,12 @@
 package my.edu.utar.libraryapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ import java.util.HashMap;
 
 public class AdminTransactionActivity extends AppCompatActivity {
 
+    AlertDialog.Builder builder;
     String key = null;
     String key1 = null;
     RecyclerView recyclerView;
@@ -78,7 +81,7 @@ public class AdminTransactionActivity extends AppCompatActivity {
         daoTransaction = new DAOTransaction();
         daoBook = new DAOBook();
 
-
+        builder = new AlertDialog.Builder(this);
 
         title.setText(transaction.getTitle());
         borrow_by.setText(transaction.getStudent_ID());
@@ -130,19 +133,44 @@ public class AdminTransactionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("status", "Returned");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date dueDate= dateFormat.parse(transaction.getDue_date());
+                    Date currentDate = new Date();
+                   long time_diff = currentDate.getTime() - dueDate.getTime();
+                   long day_diff = (time_diff / (1000*60*60*24)) % 365;
 
-                daoTransaction.update(transaction.getKey(), hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
+                   if(day_diff > 0)
+                   {
+                       float fine = (float) (day_diff * 0.50);
+                     //  Toast.makeText(AdminTransactionActivity.this, String.valueOf(fine),Toast.LENGTH_SHORT).show();
+                       builder.setTitle("Overdue")
+                               .setMessage("The overdue amount is ".concat(String.valueOf(fine)))
+                               .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                   @Override
+                                   public void onClick(DialogInterface dialogInterface, int i) {
+                                       dialogInterface.cancel();
+                                   }
+                               }).show();
+                   }
+                    daoTransaction.update(transaction.getKey(), hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(AdminTransactionActivity.this, "Book returned", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AdminTransactionActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
-                        Toast.makeText(AdminTransactionActivity.this, "Book returned", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AdminTransactionActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
 
             }
 
