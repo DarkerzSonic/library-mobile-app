@@ -150,9 +150,10 @@ public class AdminTransactionActivity extends AppCompatActivity {
                    if(day_diff > 0)
                    {
                        float fine = (float) (day_diff * 0.50);
+                       String formatted_fine = String.format("%.02f", fine);
                      //  Toast.makeText(AdminTransactionActivity.this, String.valueOf(fine),Toast.LENGTH_SHORT).show();
                        builder.setTitle("Overdue")
-                               .setMessage("The overdue amount is ".concat(String.valueOf(fine)))
+                               .setMessage("The overdue amount is RM".concat(formatted_fine))
                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                    @Override
                                    public void onClick(DialogInterface dialogInterface, int i) {
